@@ -1,0 +1,19 @@
+{
+  "name": "itassetsdirectory",
+  "version": "1.0.0",
+  "description": "IT Assets Directory For Mazrui International",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/faizrehman/ITAssetsDirectory.git"
+  },
+  "author": "Faizan Rehman",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/faizrehman/ITAssetsDirectory/issues"
+  },
+  "homepage": "https://github.com/faizrehman/ITAssetsDirectory#readme"
+}
