@@ -29,4 +29,4 @@ const AssetSchema = new Schema({
   }
 });
 
-module.exports = Post = mongoose.model("assets", PostSchema);
+module.exports = Asset = mongoose.model("assets", AssetSchema);

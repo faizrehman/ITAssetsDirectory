@@ -9,6 +9,7 @@ const db = require("./config/keys").mongoURI;
 
 // Add routes and variable declaration
 const users = require("./routes/api/users");
+const assets = require("./routes/api/assets");
 const app = express();
 
 // Body Parser middleware
@@ -30,6 +31,7 @@ require("./config/passport")(passport);
 
 // Use routes
 app.use("/api/users", users);
+app.use("/api/assets", assets);
 
 // Listening Post
 const port = process.env.PORT || 5000;
