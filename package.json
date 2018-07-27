@@ -4,8 +4,11 @@
   "description": "IT Assets Directory For Mazrui International",
   "main": "main.js",
   "scripts": {
+    "client-install": "npm install --prefix client",
     "start": "node main.js",
-    "server": "nodemon main.js"
+    "server": "nodemon main.js",
+    "client": "cd client && npm start",
+    "dev": "concurrently \"npm run server\" \"npm run client\""
   },
   "repository": {
     "type": "git",
@@ -20,6 +23,7 @@
   "dependencies": {
     "bcryptjs": "^2.4.3",
     "body-parser": "^1.18.3",
+    "concurrently": "^3.6.1",
     "express": "^4.16.3",
     "jsonwebtoken": "^8.3.0",
     "mongoose": "^5.2.5",
