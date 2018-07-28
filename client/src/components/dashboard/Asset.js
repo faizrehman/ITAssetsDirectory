@@ -17,10 +17,18 @@ class Asset extends Component {
         <td> {asset.type}</td>
         <td> {asset.status}</td>
         <td>
-          <Moment format="YYYY/MM/DD">{asset.initialpurchasedate}</Moment>
+          <Moment format="DD-MMM-YYYY">{asset.initialpurchasedate}</Moment>
         </td>
         <td> {asset.currentowner}</td>
         <td>
+        {" "}
+          <button
+            className="btn btn-primary"
+           // onClick={this.onDeleteClick.bind(this, asset._id)}
+          >
+            {" "}
+            Edit
+          </button>
           {" "}
           <button
             className="btn btn-danger"

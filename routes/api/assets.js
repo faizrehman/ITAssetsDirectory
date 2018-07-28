@@ -2,6 +2,7 @@
 const express = require("express");
 const router = express.Router();
 const passport = require("passport");
+const validateAssetInput = require("../../validation/asset");
 
 
 // Load Asset model
@@ -47,7 +48,14 @@ router.get("/:id", (req, res) => {
 router.post(
   "/",
   (req, res) => {
-    let errors = {};
+
+    const { errors, isValid } = validateAssetInput(req.body);
+
+    //Check Validation
+    if (!isValid) {
+      return res.status(400).json(errors);
+    }
+
     const assetFields = {};
     if (req.body.label) assetFields.label = req.body.label;
     if (req.body.description) assetFields.description = req.body.description;
