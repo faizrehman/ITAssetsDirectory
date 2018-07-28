@@ -4,11 +4,12 @@ import {
   GET_ASSETS,
   GET_ERRORS,
   ASSET_LOADING,
-  DELETE_ASSET
+  DELETE_ASSET,
+  CLEAR_ERRORS
 } from "./type";
 
 //Get Asset By ID
-export const getAssetByID = id => dispatch => {
+export const getAssetByID = id  => dispatch => {
   dispatch(setAssetLoading());
   //axios call
   axios
@@ -18,6 +19,7 @@ export const getAssetByID = id => dispatch => {
         type: GET_ASSET,
         payload: res.data
       })
+      
     )
     .catch(err =>
       dispatch({
@@ -72,6 +74,7 @@ export const deleteAsset = id => dispatch => {
 
 //Add Asset
 export const addAsset = (assetData, history) => dispatch => {
+  dispatch(clearErrors());
   //axios call
   axios
     .post("/api/assets", assetData)
@@ -89,5 +92,12 @@ export const addAsset = (assetData, history) => dispatch => {
 export const setAssetLoading = () => {
   return {
     type: ASSET_LOADING
+  };
+};
+
+// Clear errors
+export const clearErrors = () => {
+  return {
+    type: CLEAR_ERRORS
   };
 };

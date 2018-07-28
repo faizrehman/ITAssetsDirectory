@@ -2,13 +2,21 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import Moment from "react-moment";
-import { deleteAsset } from "../../actions/assetActions";
+import { withRouter } from "react-router-dom";
+import { deleteAsset,getAssetByID } from "../../actions/assetActions";
+
 
 class Asset extends Component {
   onDeleteClick(id) {
     this.props.deleteAsset(id);
   }
 
+onEditClick(id) { 
+  this.props.getAssetByID(id);
+  this.props.history.push("/edit-asset");
+  }
+
+  
   render() {
     const asset = this.props.asset.map(asset => (
       <tr key={asset._id}>
@@ -22,9 +30,9 @@ class Asset extends Component {
         <td> {asset.currentowner}</td>
         <td>
         {" "}
-          <button
+        <button
             className="btn btn-primary"
-           // onClick={this.onDeleteClick.bind(this, asset._id)}
+            onClick={this.onEditClick.bind(this, asset._id)}
           >
             {" "}
             Edit
@@ -64,7 +72,8 @@ class Asset extends Component {
 }
 
 Asset.protoTypes = {
-  deleteAsset: PropTypes.func.isRequired
+  deleteAsset: PropTypes.func.isRequired,
+  getAssetByID: PropTypes.func.isRequired
 };
 
-export default connect(null, { deleteAsset })(Asset);
+export default connect(null, { deleteAsset,getAssetByID })(withRouter(Asset));

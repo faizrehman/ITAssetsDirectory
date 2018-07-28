@@ -8,8 +8,8 @@ class Navbar extends Component {
   onLogoutClick(e) {
     e.preventDefault();
     this.props.logoutUser();
-    //Redirect to Login page
-    window.location.href = "/login";
+    //Redirect to main page
+    window.location.href = "/";
   }
 
   render() {

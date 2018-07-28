@@ -15,6 +15,7 @@ import Login from "./components/authentication/Login";
 import Dashboard from "./components/dashboard/Dashboard";
 import PrivateRoute from "./components/common/privateRoute";
 import AddAsset from "./components/assets/AddAsset";
+import EditAsset from "./components/assets/EditAsset";
 
 import './App.css';
 
@@ -51,6 +52,13 @@ class App extends Component {
                   exact
                   path="/add-asset"
                   component={AddAsset}
+                />
+              </Switch>
+              <Switch>
+                <PrivateRoute
+                  exact
+                  path="/edit-asset"
+                  component={EditAsset}
                 />
               </Switch>
           </div>    

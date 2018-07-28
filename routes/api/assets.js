@@ -56,6 +56,8 @@ router.post(
       return res.status(400).json(errors);
     }
 
+    
+
     const assetFields = {};
     if (req.body.label) assetFields.label = req.body.label;
     if (req.body.description) assetFields.description = req.body.description;
