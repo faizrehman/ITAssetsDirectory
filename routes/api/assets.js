@@ -91,7 +91,8 @@ router.delete(
     Asset.findById(req.params.id)
         .then(asset => {
           //Delete asset
-          asset.remove().then(() => res.json({ success: true }));
+          asset.remove();//.then(() => res.json({ success: true }));
+          asset.save().then(asset => res.json(asset));
         })
         .catch(err => res.status(404).json({ assetnotfound: "No asset found" }));
   }
